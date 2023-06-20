@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+
+#container{
+    background-color: #f4f4f4;
+    height: 100%;
+    width: 100%;
+    border: 5px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    color: aqua;
+    border: 5px solid black; 
+    flex-basis: 25%;
+    flex-grow: 1;
+}
