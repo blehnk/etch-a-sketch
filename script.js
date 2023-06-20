@@ -10,10 +10,22 @@ const button = document.querySelector('.button');
 button.addEventListener('click', setGrid);
 
 //function to change the individual grid color
+let count = 0;
 function changeColor(e){
-        let r = Math.floor(Math.random() * 256);
-        let g = Math.floor(Math.random() * 256);
-        let b = Math.floor(Math.random() * 256);
+        while(!e.target.value){
+            e.target.value = 1;
+        }
+
+        if (e.target.value < 11){
+            e.target.value++;
+        }
+
+        count = e.target.value - 1;
+        console.log(count);
+        //(e.target.value - 1)
+        let r = Math.floor(Math.random() * (256 - 25.6 * count));
+        let g = Math.floor(Math.random() * (256 - 25.6 * count));
+        let b = Math.floor(Math.random() * (256 - 25.6 * count));
         e.target.style.setProperty('--r', r);
         e.target.style.setProperty('--g', g);
         e.target.style.setProperty('--b', b);
