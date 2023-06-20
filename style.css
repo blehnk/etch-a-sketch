@@ -10,18 +10,47 @@ body{
 }
 
 
-#container{
+#mainContainer{
     background-color: #f4f4f4;
     height: 100%;
     width: 100%;
-    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+#boxContainer{
+    background-color: #f4f4f4;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
 }
 
-.box {
-    color: aqua;
+#boxContainer .box {
     border: 1px solid black;
     flex-basis: 6.25%;
     flex-grow: 1;
+}
+
+#btnContainer {
+    padding: 20px;
+    display: flex;
+    justify-content:baseline;
+    border: 2px solid rgb(3, 3, 3);
+}
+
+#btnContainer .button{
+    height: 30px;
+    width: 80px;
+    background-color: lightcoral;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+#btnContainer span {
+    align-self:last baseline;
+    padding-right: 10px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 700;
 }
