@@ -2,7 +2,7 @@ const container = document.getElementById('container');
 
 //Create 16 div to form 16 x 16 grid pattern
 let box;
-for(let i = 0; i < 16; i++){
+for(let i = 0; i < 16 * 16; i++){
     box = document.createElement('div');
     box.classList.add('box', 'hover');
     container.appendChild(box);

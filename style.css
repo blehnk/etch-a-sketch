@@ -21,7 +21,7 @@ body{
 
 .box {
     color: aqua;
-    border: 5px solid black; 
-    flex-basis: 25%;
+    border: 1px solid black;
+    flex-basis: 6.25%;
     flex-grow: 1;
 }
