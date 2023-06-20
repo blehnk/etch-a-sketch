@@ -9,9 +9,14 @@ let gridSize;
 const button = document.querySelector('.button');
 button.addEventListener('click', setGrid);
 
-
+//function to change the individual grid color
 function changeColor(e){
-        e.target.style.backgroundColor = 'green';
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        e.target.style.setProperty('--r', r);
+        e.target.style.setProperty('--g', g);
+        e.target.style.setProperty('--b', b);
 }
 
 
@@ -23,7 +28,15 @@ function setGrid(e){
             boxContainer.removeChild(boxContainer.firstChild);
         }
     }
-    userInput = prompt('Enter the size you want for the grid');
+
+    //Ask for input again if userInput != [1-100]
+    do{
+        userInput = prompt('Enter the size you want for the grid[1-100]');
+        if(userInput < 0 || userInput > 100){
+            userInput = -1;
+        }
+    }while(userInput == -1)
+
     gridSize = userInput * userInput;
     for(let i = 0; i < gridSize; i++){
         console.log(gridSize);
@@ -37,10 +50,6 @@ function setGrid(e){
     //Create an event for changing color when hovering over a div
     const hover = document.querySelectorAll('.hover');
     hover.forEach(item => item.addEventListener('mouseenter', changeColor));
-
 }
-
-//let gridSize = userInput * userInput;
-
 
 
