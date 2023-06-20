@@ -26,17 +26,19 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
+:root {
+    --gridSize : ;
+}
 
 #boxContainer .box {
     border: 1px solid black;
-    flex-basis: 6.25%;
+    flex-basis: var(--gridSize);
     flex-grow: 1;
 }
 
 #btnContainer {
     padding: 20px;
     display: flex;
-    justify-content:baseline;
     border: 2px solid rgb(3, 3, 3);
 }
 
