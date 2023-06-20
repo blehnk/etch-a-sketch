@@ -1,11 +1,11 @@
-const container = document.getElementById('container');
+const boxContainer = document.getElementById('boxContainer');
 
 //Create 16 div to form 16 x 16 grid pattern
 let box;
 for(let i = 0; i < 16 * 16; i++){
     box = document.createElement('div');
     box.classList.add('box', 'hover');
-    container.appendChild(box);
+    boxContainer.appendChild(box);
 }
 
 //Create an event for changing color when hovering over a div
