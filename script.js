@@ -70,10 +70,10 @@ function setGrid(e){
     set.textContent = 'Reset the size of the grid:';
     button1.textContent = 'RESET';
 
-    //Append button2 to a div, and then to the main container
+    //Append button2 to a div
     btnContainer.appendChild(button2);
 
-    //Append button2 to a div, and then to the main container
+    //Append button3 to a div
     btnContainer.appendChild(button3);
 
     //Remove greetings
