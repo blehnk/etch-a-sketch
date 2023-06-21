@@ -34,7 +34,6 @@ body{
 }
 
 #boxContainer .box {
-    border: 1px solid black;
     flex-basis: var(--gridSize);
     flex-grow: 1;
     background-color: rgb(var(--r), var(--g), var(--b));
@@ -43,20 +42,36 @@ body{
 #btnContainer {
     padding: 20px;
     display: flex;
-    border: 2px solid rgb(3, 3, 3);
+    justify-content:space-between;
+    flex-wrap: wrap;
+    align-items: last baseline;
+}
+
+#btnContainer div {
+    align-self: flex-end;
+    display: flex;
 }
 
 #btnContainer .button{
     height: 30px;
     width: 80px;
-    background-color: lightcoral;
+    background-color: hsla(0, 0%, 96%, 0.527);
     font-weight: 700;
     border-radius: 5px;
 }
 
 #btnContainer span {
     align-self:last baseline;
-    padding-right: 10px;
+    padding-right: 5px;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: 700;
+}
+
+#btnContainer .button.big {
+    height: 50px;
+}
+
+#btnContainer h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
 }

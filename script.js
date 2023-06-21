@@ -6,8 +6,8 @@ let gridSize;
 
 //Create an event to listen to a button click 
 //and give user a prompt to set the grid size when it fires
-const button = document.querySelector('.button');
-button.addEventListener('click', setGrid);
+const button1 = document.querySelector('.button');
+button1.addEventListener('click', setGrid);
 
 //function to change the individual grid color
 let count = 0;
@@ -19,10 +19,8 @@ function changeColor(e){
         if (e.target.value < 11){
             e.target.value++;
         }
-
         count = e.target.value - 1;
-        console.log(count);
-        //(e.target.value - 1)
+
         let r = Math.floor(Math.random() * (256 - 25.6 * count));
         let g = Math.floor(Math.random() * (256 - 25.6 * count));
         let b = Math.floor(Math.random() * (256 - 25.6 * count));
@@ -51,7 +49,6 @@ function setGrid(e){
 
     gridSize = userInput * userInput;
     for(let i = 0; i < gridSize; i++){
-        console.log(gridSize);
         box = document.createElement('div');
         box.classList.add('box', 'hover');
         let x = `${100 / userInput}%`;
@@ -59,9 +56,44 @@ function setGrid(e){
         boxContainer.appendChild(box);
     }
 
+    //Change set to reset
+    const set = document.querySelector('span');
+    set.textContent = 'Reset the size of the grid:';
+    button1.textContent = 'RESET';
+
+    //Append button2 to a div, and then to the main container
+    btnContainer.appendChild(button2);
+
+    //Remove greetings
+    while(temp == 0){
+        greetings.parentNode.removeChild(greetings);
+        temp = 1;
+    }
+
+}
+
+//create a div to contain a button
+const btnContainer = document.querySelector('#btnContainer');
+const button2 = document.createElement('button');
+button2.classList.add('button', 'big');
+button2.textContent = 'START DRAWING';
+
+
+let temp = 1;
+const greetings = document.createElement('h1');
+
+
+button2.addEventListener('click', start);
+//function to start make the drawing area active
+function start(){
+    while(temp != 0){
+        greetings.textContent = "Yay! You can now start drawing on the canvas below";
+        btnContainer.insertBefore(greetings, button2);
+        temp = 0;
+    }
+
     //Create an event for changing color when hovering over a div
     const hover = document.querySelectorAll('.hover');
     hover.forEach(item => item.addEventListener('mouseenter', changeColor));
 }
-
 
