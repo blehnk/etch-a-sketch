@@ -12,6 +12,7 @@ button1.addEventListener('click', setGrid);
 //function to change the individual grid color
 let count = 0;
 function changeColor(e){
+    if(e.type === 'mouseover' && !mouseDown) return
         while(!e.target.value){
             e.target.value = 1;
         }
@@ -79,6 +80,7 @@ button2.classList.add('button', 'big');
 button2.textContent = 'START DRAWING';
 
 
+let mouseDown = false
 let temp = 1;
 const greetings = document.createElement('h1');
 
@@ -92,8 +94,14 @@ function start(){
         temp = 0;
     }
 
+    document.body.onmousedown = () => (mouseDown = true)
+    document.body.onmouseup = () => (mouseDown = false)
+
     //Create an event for changing color when hovering over a div
     const hover = document.querySelectorAll('.hover');
-    hover.forEach(item => item.addEventListener('mouseenter', changeColor));
+    hover.forEach(item => {
+        item.addEventListener('mouseover', changeColor)
+        item.addEventListener('mousedown', changeColor)
+    });
 }
 
