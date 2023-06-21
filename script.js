@@ -13,6 +13,13 @@ button1.addEventListener('click', setGrid);
 let count = 0;
 function changeColor(e){
     if(e.type === 'mouseover' && !mouseDown) return
+
+    if(eraser === 1){
+        e.target.style.setProperty('--r', 255);
+        e.target.style.setProperty('--g', 255);
+        e.target.style.setProperty('--b', 255);
+    }
+    else{
         while(!e.target.value){
             e.target.value = 1;
         }
@@ -28,6 +35,7 @@ function changeColor(e){
         e.target.style.setProperty('--r', r);
         e.target.style.setProperty('--g', g);
         e.target.style.setProperty('--b', b);
+    }
 }
 
 
@@ -65,6 +73,9 @@ function setGrid(e){
     //Append button2 to a div, and then to the main container
     btnContainer.appendChild(button2);
 
+    //Append button2 to a div, and then to the main container
+    btnContainer.appendChild(button3);
+
     //Remove greetings
     while(temp == 0){
         greetings.parentNode.removeChild(greetings);
@@ -79,11 +90,30 @@ const button2 = document.createElement('button');
 button2.classList.add('button', 'big');
 button2.textContent = 'START DRAWING';
 
+//create Eraser
+const button3 = document.createElement('button');
+button3.classList.add('button', 'big');
+button3.textContent = 'START ERASING';
 
+let eraser = 0;
 let mouseDown = false
 let temp = 1;
 const greetings = document.createElement('h1');
 
+//Event to start erasing
+button3.addEventListener('click', erase);
+function erase(){
+    eraser = 1;
+    document.body.onmousedown = () => (mouseDown = true)
+    document.body.onmouseup = () => (mouseDown = false)
+
+    //Create an event for changing color when hovering over a div
+    const hover = document.querySelectorAll('.hover');
+    hover.forEach(item => {
+        item.addEventListener('mouseover', changeColor)
+        item.addEventListener('mousedown', changeColor)
+    });
+}
 
 button2.addEventListener('click', start);
 //function to start make the drawing area active
@@ -94,6 +124,7 @@ function start(){
         temp = 0;
     }
 
+    eraser = 0;
     document.body.onmousedown = () => (mouseDown = true)
     document.body.onmouseup = () => (mouseDown = false)
 
